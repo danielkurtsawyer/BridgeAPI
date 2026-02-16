@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BridgeAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+325c5597232532f9ac469c24caf36705fe9c8a60")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b50454d05fc0a97bf4e2b66cb9efd443799b229d")]
 [assembly: System.Reflection.AssemblyProductAttribute("BridgeAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BridgeAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
