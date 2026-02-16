@@ -31,3 +31,4 @@
 /Users/danielsawyer/Web Projects/NET/BridgeAPI/BridgeAPI/obj/Debug/net10.0/BridgeAPI.pdb
 /Users/danielsawyer/Web Projects/NET/BridgeAPI/BridgeAPI/obj/Debug/net10.0/BridgeAPI.genruntimeconfig.cache
 /Users/danielsawyer/Web Projects/NET/BridgeAPI/BridgeAPI/obj/Debug/net10.0/ref/BridgeAPI.dll
+/Users/danielsawyer/Web Projects/NET/BridgeAPI/BridgeAPI/obj/Debug/net10.0/BridgeAPI.sourcelink.json
