@@ -52,4 +52,19 @@ public static class BridgeRepository
   {
     return _bridges.FirstOrDefault(x => x.BridgeId == id);
   }
+
+  public static Bridge AddBridge(Bridge bridge)
+  {
+    bridge.BridgeId = _bridges.Max(x => x.BridgeId) + 1;
+    _bridges.Add(bridge);
+    return bridge;
+  }
+
+  public static void UpdateBridge(Bridge bridge)
+  {
+    var bridgeToUpdate = _bridges.First(x => x.BridgeId == bridge.BridgeId);
+    bridgeToUpdate.BridgeName = bridge.BridgeName;
+    bridgeToUpdate.HeightInFeet = bridge.HeightInFeet;
+    bridgeToUpdate.WeightLimitTons = bridge.WeightLimitTons;
+  }
 }

@@ -18,15 +18,20 @@ public class BridgeController : ControllerBase
   }
 
   [HttpPost]
-  public string CreateBridge(Bridge bridge)
+  [Bridge_ValidateBridgeCreateFilter]
+  public IActionResult CreateBridge(Bridge bridge)
   {
-    return $"Creating a bridge with {bridge.BridgeId}, {bridge.WeightLimitTons}, {bridge.HeightInFeet}";
+    BridgeRepository.AddBridge(bridge);
+    return CreatedAtAction(nameof(GetBridge), new { id = bridge.BridgeId }, bridge);
   }
 
   [HttpPut("{id}")]
-  public string UpdateBridge(int id)
+  [Bridge_ValidateBridgeIdFilter]
+  [Bridge_ValidateBridgeUpdateFilter]
+  public IActionResult UpdateBridge(int id, Bridge bridge)
   {
-    return $"Updating bridge id {id}";
+    BridgeRepository.UpdateBridge(bridge);
+    return NoContent();
   }
 
   [HttpDelete("{id}")]
