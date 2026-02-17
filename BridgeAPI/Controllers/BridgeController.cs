@@ -17,14 +17,14 @@ public class BridgeController : ControllerBase
   }
 
   [HttpGet("{id}")]
-  [Bridge_ValidateBridgeIdFilter]
+  [ServiceFilter(typeof(Bridge_ValidateBridgeIdFilterAttribute))]
   public IActionResult GetBridge(int id)
   {
     return Ok(_bridgeRepository.GetBridgeById(id));
   }
 
   [HttpPost]
-  [Bridge_ValidateBridgeCreateFilter]
+  [ServiceFilter(typeof(Bridge_ValidateBridgeCreateFilterAttribute))]
   public IActionResult CreateBridge(Bridge bridge)
   {
     _bridgeRepository.AddBridge(bridge);
@@ -32,7 +32,7 @@ public class BridgeController : ControllerBase
   }
 
   [HttpPut("{id}")]
-  [Bridge_ValidateBridgeIdFilter]
+  [ServiceFilter(typeof(Bridge_ValidateBridgeIdFilterAttribute))]
   [Bridge_ValidateBridgeUpdateFilter]
   public IActionResult UpdateBridge(int id, Bridge bridge)
   {
@@ -41,7 +41,7 @@ public class BridgeController : ControllerBase
   }
 
   [HttpDelete("{id}")]
-  [Bridge_ValidateBridgeIdFilter]
+  [ServiceFilter(typeof(Bridge_ValidateBridgeIdFilterAttribute))]
   public IActionResult DeleteBridge(int id)
   {
     var bridge = _bridgeRepository.GetBridgeById(id);
