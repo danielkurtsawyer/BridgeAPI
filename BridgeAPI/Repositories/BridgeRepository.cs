@@ -1,6 +1,6 @@
-public static class BridgeRepository
+public class BridgeRepository : IBridgeRepository
 {
-  private static List<Bridge> _bridges = new List<Bridge>()
+  private List<Bridge> _bridges = new List<Bridge>()
   {
     new Bridge {
             BridgeId = 1,
@@ -38,29 +38,29 @@ public static class BridgeRepository
         }
   };
 
-  public static bool BridgeExists(int id)
+  public bool BridgeExists(int id)
   {
     return _bridges.Any(x => x.BridgeId == id);
   }
 
-  public static List<Bridge> GetBridges()
+  public List<Bridge> GetBridges()
   {
     return _bridges;
   }
 
-  public static Bridge? GetBridgeById(int id)
+  public Bridge? GetBridgeById(int id)
   {
     return _bridges.FirstOrDefault(x => x.BridgeId == id);
   }
 
-  public static Bridge AddBridge(Bridge bridge)
+  public Bridge AddBridge(Bridge bridge)
   {
     bridge.BridgeId = _bridges.Max(x => x.BridgeId) + 1;
     _bridges.Add(bridge);
     return bridge;
   }
 
-  public static void UpdateBridge(Bridge bridge)
+  public void UpdateBridge(Bridge bridge)
   {
     var bridgeToUpdate = _bridges.First(x => x.BridgeId == bridge.BridgeId);
     bridgeToUpdate.BridgeName = bridge.BridgeName;
@@ -68,7 +68,7 @@ public static class BridgeRepository
     bridgeToUpdate.WeightLimitTons = bridge.WeightLimitTons;
   }
 
-  public static void DeleteBridge(int id)
+  public void DeleteBridge(int id)
   {
     var bridge = GetBridgeById(id);
     if (bridge != null)
