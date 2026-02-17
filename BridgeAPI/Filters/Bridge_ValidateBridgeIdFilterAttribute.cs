@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 public class Bridge_ValidateBridgeIdFilterAttribute : ActionFilterAttribute
 {
-  private readonly IBridgeRepository _bridgeRepository;
+  private readonly IBridgeService _bridgeService;
 
-  public Bridge_ValidateBridgeIdFilterAttribute(IBridgeRepository repository)
+  public Bridge_ValidateBridgeIdFilterAttribute(IBridgeService service)
   {
-    _bridgeRepository = repository;
+    _bridgeService = service;
   }
   public override void OnActionExecuting(ActionExecutingContext context)
   {
@@ -26,7 +26,7 @@ public class Bridge_ValidateBridgeIdFilterAttribute : ActionFilterAttribute
         };
         context.Result = new BadRequestObjectResult(problemDetails);
       }
-      else if (!_bridgeRepository.BridgeExists(bridgeId.Value))
+      else if (!_bridgeService.BridgeExists(bridgeId.Value))
       {
         context.ModelState.AddModelError("BridgeId", "Bridge doesn't exist");
         var problemDetails = new ValidationProblemDetails(context.ModelState)

@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 public class Bridge_ValidateBridgeCreateFilterAttribute : ActionFilterAttribute
 {
-  private readonly IBridgeRepository _bridgeRepository;
+  private readonly IBridgeService _bridgeService;
 
-  public Bridge_ValidateBridgeCreateFilterAttribute(IBridgeRepository repository)
+  public Bridge_ValidateBridgeCreateFilterAttribute(IBridgeService service)
   {
-    _bridgeRepository = repository;
+    _bridgeService = service;
   }
   public override void OnActionExecuting(ActionExecutingContext context)
   {
