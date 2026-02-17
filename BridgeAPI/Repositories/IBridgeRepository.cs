@@ -1,4 +1,4 @@
-interface IBridgeRepository
+public interface IBridgeRepository
 {
   bool BridgeExists(int id);
   List<Bridge> GetBridges();
