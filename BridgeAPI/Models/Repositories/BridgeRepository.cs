@@ -67,4 +67,13 @@ public static class BridgeRepository
     bridgeToUpdate.HeightInFeet = bridge.HeightInFeet;
     bridgeToUpdate.WeightLimitTons = bridge.WeightLimitTons;
   }
+
+  public static void DeleteBridge(int id)
+  {
+    var bridge = GetBridgeById(id);
+    if (bridge != null)
+    {
+      _bridges.Remove(bridge);
+    }
+  }
 }

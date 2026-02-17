@@ -35,8 +35,11 @@ public class BridgeController : ControllerBase
   }
 
   [HttpDelete("{id}")]
-  public string DeleteBridge(int id)
+  [Bridge_ValidateBridgeIdFilter]
+  public IActionResult DeleteBridge(int id)
   {
-    return $"Deleting bridge id {id}";
+    var bridge = BridgeRepository.GetBridgeById(id);
+    BridgeRepository.DeleteBridge(id);
+    return Ok(bridge);
   }
 }
